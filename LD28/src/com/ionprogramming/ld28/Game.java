@@ -13,6 +13,7 @@ import com.ionprogramming.ld28.entities.Entity;
 import com.ionprogramming.ld28.gfx.Images;
 import com.ionprogramming.ld28.gfx.Render;
 import com.ionprogramming.ld28.input.Keys;
+import com.ionprogramming.ld28.level.Levels;
 import com.ionprogramming.ld28.phys.Update;
 
 
@@ -42,6 +43,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			Levels.init(1);
 		}
 		
 		
