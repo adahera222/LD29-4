@@ -80,8 +80,8 @@ public class Entity {
 				}
 			}
 			else if(dir == 3){
-				if(Map.map[ypos][xpos - 1] != 1){
-					if(xpos > 0){
+				if(xpos > 0){
+					if(Map.map[ypos][xpos - 1] != 1){
 						xos -= speed;
 					}
 				}
