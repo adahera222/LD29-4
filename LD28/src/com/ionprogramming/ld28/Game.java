@@ -75,9 +75,6 @@ public class Game extends Applet implements Runnable, KeyListener{
 			width = Window.getWindows()[0].getWidth() - 6;
 			height = Window.getWindows()[0].getHeight() - 32;
 			
-			g.setColor(Color.red);
-			g.fillRect(0, 0, width, height);
-			
 			Render.render(g);
 		}
 		
