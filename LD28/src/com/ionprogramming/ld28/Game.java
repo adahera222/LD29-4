@@ -11,9 +11,10 @@ import java.util.ArrayList;
 
 import com.ionprogramming.ld28.entities.Entity;
 import com.ionprogramming.ld28.gfx.Images;
+import com.ionprogramming.ld28.gfx.TitleScreen;
+import com.ionprogramming.ld28.gfx.Update;
 import com.ionprogramming.ld28.input.Keys;
 import com.ionprogramming.ld28.level.Levels;
-import com.ionprogramming.ld28.phys.Update;
 
 
 public class Game extends Applet implements Runnable, KeyListener{
@@ -30,13 +31,15 @@ public class Game extends Applet implements Runnable, KeyListener{
 		double sleepTime;
 		static double FPS = 60;
 		
+		public static boolean titleScreen = true;
+		
 		public static ArrayList<Entity> entities = new ArrayList<Entity>();
 		
 		public void init(){
 			addKeyListener(this);
 			setSize(width, height);
 			setFocusable(true);
-			setBackground(Color.blue);
+			setBackground(Color.black);
 			try {
 				Images.load();
 			} catch (IOException e) {
@@ -75,7 +78,14 @@ public class Game extends Applet implements Runnable, KeyListener{
 		public void paint(Graphics g){
 			width = Window.getWindows()[0].getWidth() - 6;
 			height = Window.getWindows()[0].getHeight() - 32;
-			Update.update(g);
+			
+			if(titleScreen){
+				TitleScreen.renderScreen(g);
+			}
+			else{
+				Update.update(g);
+			}
+			
 		}
 		
 		public void update(Graphics g){

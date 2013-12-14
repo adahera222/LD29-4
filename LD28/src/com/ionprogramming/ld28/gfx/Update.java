@@ -1,4 +1,4 @@
-package com.ionprogramming.ld28.phys;
+package com.ionprogramming.ld28.gfx;
 
 import java.awt.Graphics;
 

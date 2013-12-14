@@ -8,7 +8,7 @@ public class Map {
 
 	public static int[][] map;
 	
-	public static int[][] map1 = new int[][] {{1, 2, 2}, {1, 2, 1}};
+	public static int[][] map1 = new int[][] {{1, 2, 2, 2}, {1, 2, 1, 2}, {2, 2, 2, 2}, {2, 2, 2, 2}};
 	
 	public static void render(Graphics g){
 		for(int y = 0; y < map.length; y++){
