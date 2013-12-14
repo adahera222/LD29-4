@@ -1,6 +1,7 @@
 package com.ionprogramming.ld28;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -25,10 +26,10 @@ public class Window extends JFrame {
 		}
 
 		public Window() {
-			setTitle("LD28 - Warmup");
-			setResizable(false);
+			setTitle("LD28");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, Game.width + 6, Game.height + 32);
+			setMinimumSize(new Dimension(512, 512));
 			contentPane = new JPanel();
 			contentPane.setLayout(new BorderLayout(0, 0));
 			setContentPane(contentPane);
