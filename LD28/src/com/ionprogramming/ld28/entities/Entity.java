@@ -4,38 +4,37 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import com.ionprogramming.ld28.Game;
+import com.ionprogramming.ld28.level.Map;
 
 public class Entity {
 
 	public int speed = 4;
 	public int xpos;
 	public int ypos;
-	public int xos;
-	public int yos;
-	public int health;
-	public int healthRange;
-	public String type;
+	public int xos = 0;
+	public int yos = 0;
 	public BufferedImage[] imgs;
-	public int currentImage;
-	boolean movable;
+	public int currentImage = 0;
+	boolean movable = false;
 	
 	public void draw(Graphics g){
 		g.drawImage(imgs[currentImage], xpos*64 + xos, ypos*64 + yos, null);
 	}
 	
-	public void update(){
+	public void update(Graphics g){
+		ai();
 		if(movable){
 			if(xos < 0){
-				xos -= 4;
+				xos -= speed;
 			}
 			else if(xos > 0){
-				xos += 4;
+				xos += speed;
 			}
 			if(yos < 0){
-				yos -= 4;
+				yos -= speed;
 			}
 			else if(yos > 0){
-				yos += 4;
+				yos += speed;
 			}
 			if(xos >= 64){
 				xos = 0;
@@ -54,23 +53,44 @@ public class Entity {
 				ypos--;
 			}
 		}
+		draw(g);
 	}
 	
 	public void move(int dir){
 		if(xos == 0 && yos == 0){
 			if(dir == 0){
-				yos -= 4;
+				if(ypos > 0){
+					if(Map.map[ypos - 1][xpos] != 1){
+						yos -= speed;
+					}
+				}
 			}
 			else if(dir == 1){
-				xos += 4;
+				if(xpos < Map.map[0].length - 1){
+					if(Map.map[ypos][xpos + 1] != 1){
+						xos += speed;
+					}
+				}
 			}
 			else if(dir == 2){
-				yos += 4;
+				if(ypos < Map.map.length - 1){
+					if(Map.map[ypos + 1][xpos] != 1){
+						yos += speed;
+					}
+				}
 			}
 			else if(dir == 3){
-				xos -= 4;
+				if(Map.map[ypos][xpos - 1] != 1){
+					if(xpos > 0){
+						xos -= speed;
+					}
+				}
 			}
 		}
+	}
+	
+	public void ai(){
+		
 	}
 	
 	public void destroy(){

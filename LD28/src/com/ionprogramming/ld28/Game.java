@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import com.ionprogramming.ld28.entities.Entity;
 import com.ionprogramming.ld28.gfx.Images;
-import com.ionprogramming.ld28.gfx.Render;
 import com.ionprogramming.ld28.input.Keys;
 import com.ionprogramming.ld28.level.Levels;
 import com.ionprogramming.ld28.phys.Update;
@@ -37,7 +36,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 			addKeyListener(this);
 			setSize(width, height);
 			setFocusable(true);
-			setBackground(Color.black);
+			setBackground(Color.blue);
 			try {
 				Images.load();
 			} catch (IOException e) {
@@ -76,11 +75,10 @@ public class Game extends Applet implements Runnable, KeyListener{
 		public void paint(Graphics g){
 			width = Window.getWindows()[0].getWidth() - 6;
 			height = Window.getWindows()[0].getHeight() - 32;
-			
-			Render.render(g);
+			Update.update(g);
 		}
 		
-		public void update (Graphics g){
+		public void update(Graphics g){
 			if (dbImage == null){
 		        dbImage = createImage (this.getSize().width, this.getSize().height);
 		        dbg = dbImage.getGraphics ();
@@ -90,12 +88,11 @@ public class Game extends Applet implements Runnable, KeyListener{
 		    dbg.setColor (getForeground());	    
 		    paint (dbg);
 		    g.drawImage (dbImage, 0, 0, this);
-		    Update.update();
 		}
 
 
 		@Override
-		public void keyPressed(KeyEvent e) {
+		public void keyPressed(KeyEvent e){
 			Keys.keyPressed(e);			
 		}
 
