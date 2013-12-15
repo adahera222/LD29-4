@@ -34,7 +34,7 @@ public class Window extends JFrame {
 			setResizable(false);
 			setTitle("Charcoal");
 			try {
-				setIconImage(ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/titleScreen.png")));
+				setIconImage(ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/icon.png")));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
