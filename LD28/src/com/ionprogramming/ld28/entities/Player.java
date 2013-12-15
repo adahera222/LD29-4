@@ -5,6 +5,12 @@ import com.ionprogramming.ld28.gfx.Images;
 import com.ionprogramming.ld28.input.Keys;
 
 public class Player extends Entity{
+	
+	public static int xp;
+	public static int yp;
+	public static int xo;
+	public static int yo;
+	
 	public Player(int xpos, int ypos){
 		this.xpos = xpos;
 		this.ypos = ypos;
@@ -65,5 +71,9 @@ public class Player extends Entity{
 				Game.entities.get(e).trigger(this.id);
 			}
 		}
+		xp = xpos;
+		yp = ypos;
+		xo = xos;
+		yo = yos;
 	}
 }
