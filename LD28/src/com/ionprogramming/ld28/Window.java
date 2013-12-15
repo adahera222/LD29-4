@@ -3,8 +3,13 @@ package com.ionprogramming.ld28;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import com.ionprogramming.ld28.gfx.Images;
 
 public class Window extends JFrame {
 	 static final long serialVersionUID = 1L;
@@ -26,8 +31,13 @@ public class Window extends JFrame {
 		}
 
 		public Window() {
-//			setResizable(false);
-			setTitle("LD28");
+			setResizable(false);
+			setTitle("Charcoal");
+			try {
+				setIconImage(ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/titleScreen.png")));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, Game.width + 6, Game.height + 32);
 			setMinimumSize(new Dimension(780 + 6, 520 + 32));

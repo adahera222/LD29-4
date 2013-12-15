@@ -1,7 +1,9 @@
 package com.ionprogramming.ld28.gfx;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import com.ionprogramming.ld28.Game;
@@ -63,11 +65,12 @@ public class HUD {
 		g.drawImage(distance, Game.width / 2 - distance.getWidth() / 2, Game.height - 80 / 2 - distance.getHeight() / 2, null);
 		
 		g.drawImage(timeLeft, 40, Game.height - 40 - timeLeft.getHeight() / 2, null);
-		
-		g.setColor(Color.WHITE);
-		g.drawOval(Game.width - (200 / 2) - (60 / 2), Game.height - 80 + 5, 61, 61);
-		g.setColor(Color.red);
-		g.drawLine(Game.width - (200 / 2) - (60 / 2) + 30, Game.height - 80 + 35, Game.width - (200 / 2) - (60 / 2) + 30 + cx, Game.height - 80 + 35 + cy);
+		Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(3));
+		g2.setColor(Color.WHITE);
+		g2.drawOval(Game.width - (200 / 2) - (60 / 2), Game.height - 80 + 5, 61, 61);
+		g2.setColor(Color.red);
+		g2.drawLine(Game.width - (200 / 2) - (60 / 2) + 30, Game.height - 80 + 35, Game.width - (200 / 2) - (60 / 2) + 30 + cx, Game.height - 80 + 35 + cy);
 		renderTorch(g);
 	}
 	

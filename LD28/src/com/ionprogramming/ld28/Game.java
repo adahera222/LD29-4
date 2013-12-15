@@ -57,7 +57,6 @@ public class Game extends Applet implements Runnable, KeyListener{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-//		HUD.genTxt();
 		Levels.init(1);
 	}
 	
