@@ -14,12 +14,10 @@ public class HUD {
 	
 	static BufferedImage distance; 
 
-	
 	static BufferedImage floor; 
 	static BufferedImage timeLeft; 
 	
-	public static BufferedImage[]hud;
-
+	static Particle[] smoke;
 	
 	static int flameNum = 0;
 	static int timer = 0;
@@ -86,6 +84,18 @@ public class HUD {
 				flameNum = Torchlight.random.nextInt(4);
 			}
 		}
+		g.setColor(Color.gray);
+		for(int n = 0; n < smoke.length; n++){
+			smoke[n].update(g);
+		}
 		g.drawImage(Images.flames[flameNum], 8, 350 - 340*Game.torchTimeLeft/Game.timeLimit, null);
+		
+	}
+	
+	public static void initSmoke(){
+		smoke = new Particle[40];
+		for(int n = 0; n < smoke.length; n++){
+			smoke[n] = new Particle();
+		}
 	}
 }

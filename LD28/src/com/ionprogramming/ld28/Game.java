@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.ionprogramming.ld28.entities.Entity;
+import com.ionprogramming.ld28.gfx.HUD;
 import com.ionprogramming.ld28.gfx.Images;
 import com.ionprogramming.ld28.gfx.TitleScreen;
 import com.ionprogramming.ld28.gfx.Update;
@@ -58,6 +59,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 			e.printStackTrace();
 		}
 		Levels.init(1);
+		HUD.initSmoke();
 	}
 	
 	
