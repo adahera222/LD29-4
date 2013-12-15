@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.ionprogramming.ld28.entities.Entity;
+import com.ionprogramming.ld28.gfx.HUD;
 import com.ionprogramming.ld28.gfx.Images;
 import com.ionprogramming.ld28.gfx.TitleScreen;
 import com.ionprogramming.ld28.gfx.Update;
@@ -18,20 +19,28 @@ import com.ionprogramming.ld28.level.Levels;
 
 
 public class Game extends Applet implements Runnable, KeyListener{
-		
+
+	public static int puzzlesComplete = 1;
+	public static int totalPuzzles = 20;
+	
+	public static int currentFloor = 5;
+	
+	public static int torchTimeLeft = 135;
+	
+	
 		private static final long serialVersionUID = 1L;
 		
 		private Image dbImage;
 		private Graphics dbg;
 	
-		public static int width = 720;
-		public static int height = 480;
+		public static int width = 780;
+		public static int height = 520;
 		
 		static double time;
 		double sleepTime;
 		static double FPS = 60;
 		
-		public static boolean titleScreen = true;
+		public static boolean titleScreen = false;
 		
 		public static ArrayList<Entity> entities = new ArrayList<Entity>();
 		
@@ -45,6 +54,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			HUD.genTxt();
 			Levels.init(1);
 		}
 		

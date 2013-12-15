@@ -27,10 +27,14 @@ public class Images {
 		playButton = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/play.png"));
 		
 		fontTiles = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/font.png"));
+
 		font = ImageHandler.all(fontTiles, 27, 2, 2);
 		
 		wall = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/map.png"));
 		walls = ImageHandler.all(wall, 6, 7, 1);
+
+		font = ImageHandler.all(fontTiles, 27, 2, 1);
+
 	}
 	
 }

@@ -29,7 +29,7 @@ public class Window extends JFrame {
 			setTitle("LD28");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, Game.width + 6, Game.height + 32);
-			setMinimumSize(new Dimension(512, 512));
+			setMinimumSize(new Dimension(780 + 6, 520 + 32));
 			contentPane = new JPanel();
 			contentPane.setLayout(new BorderLayout(0, 0));
 			setContentPane(contentPane);
