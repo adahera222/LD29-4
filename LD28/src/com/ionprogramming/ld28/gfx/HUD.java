@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import com.ionprogramming.ld28.Game;
+import com.ionprogramming.ld28.entities.Player;
+import com.ionprogramming.ld28.level.Map;
 
 public class HUD {
 	
@@ -29,10 +31,20 @@ public class HUD {
 			time = min + ":" + sec;
 		}
 		
-		int dist = 999;
+		int dist = (int) Math.sqrt(Math.pow((Player.xp - Map.targetX), 2) + Math.pow((Player.yp - Map.targetY), 2));
 		
-		distance = DrawString.make("EXIT: " + dist +" M" , "EXIT: ".length() + String.valueOf(dist).length()+2, 2, 0xFFFFFF);
-		floor = DrawString.make("Floor: " + String.valueOf(Game.currentFloor), "Floor: ".length() + String.valueOf(Game.currentFloor).length(), 1, 0xFFFFFF);
+		double theta = Math.atan((double)Math.abs(Map.targetX - Player.xp)/(double)Math.abs(Map.targetY - Player.yp));
+		int cx = (int)(30*Math.sin(theta));
+		int cy = (int)(30*Math.cos(theta));
+		if(Map.targetX - Player.xp < 0){
+			cx = -cx;
+		}
+		if(Map.targetY - Player.yp < 0){
+			cy = -cy;
+		}
+		
+		distance = DrawString.make("EXIT: " + dist +"M" , "EXIT: ".length() + String.valueOf(dist).length()+1, 2, 0xFFFFFF);
+		
 		timeLeft = DrawString.make(time, time.length(), 2, 0xFFFFFF);
 		
 		g.setColor(Color.black);
@@ -54,8 +66,10 @@ public class HUD {
 		
 		g.drawImage(timeLeft, 40, Game.height - 40 - timeLeft.getHeight() / 2, null);
 		
-		g.drawImage(floor, Game.width - (200 / 2) - floor.getWidth() / 2, Game.height - (40 / 2) - floor.getHeight() / 2, null);
-		
+		g.setColor(Color.WHITE);
+		g.drawOval(Game.width - (200 / 2) - (60 / 2), Game.height - 80 + 5, 61, 61);
+		g.setColor(Color.red);
+		g.drawLine(Game.width - (200 / 2) - (60 / 2) + 30, Game.height - 80 + 35, Game.width - (200 / 2) - (60 / 2) + 30 + cx, Game.height - 80 + 35 + cy);
 		renderTorch(g);
 	}
 	
