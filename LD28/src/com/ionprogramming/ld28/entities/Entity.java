@@ -24,7 +24,7 @@ public class Entity {
 	}
 	
 	public void update(Graphics g){
-		ai();
+		
 		if(movable){
 			if(xos < 0){
 				xos -= speed;
@@ -55,6 +55,7 @@ public class Entity {
 				ypos--;
 			}
 		}
+		ai();
 		draw(g);
 	}
 	
