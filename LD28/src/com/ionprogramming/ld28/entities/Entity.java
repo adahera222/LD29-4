@@ -60,28 +60,28 @@ public class Entity {
 		if(xos == 0 && yos == 0){
 			if(dir == 0){
 				if(ypos > 0){
-					if(Map.map[ypos - 1][xpos] != 1){
+					if(Map.map[ypos - 1][xpos] == 0){
 						yos -= speed;
 					}
 				}
 			}
 			else if(dir == 1){
 				if(xpos < Map.map[0].length - 1){
-					if(Map.map[ypos][xpos + 1] != 1){
+					if(Map.map[ypos][xpos + 1] == 0){
 						xos += speed;
 					}
 				}
 			}
 			else if(dir == 2){
 				if(ypos < Map.map.length - 1){
-					if(Map.map[ypos + 1][xpos] != 1){
+					if(Map.map[ypos + 1][xpos] == 0){
 						yos += speed;
 					}
 				}
 			}
 			else if(dir == 3){
 				if(xpos > 0){
-					if(Map.map[ypos][xpos - 1] != 1){
+					if(Map.map[ypos][xpos - 1] == 0){
 						xos -= speed;
 					}
 				}

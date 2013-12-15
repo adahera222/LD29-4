@@ -16,6 +16,9 @@ public class Images {
 	public static BufferedImage fontTiles;
 	public static BufferedImage[] font;
 	
+	public static BufferedImage wall;
+	public static BufferedImage[] walls;
+	
 	public static void load() throws IOException{
 		tileImage = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/images.png"));
 		tiles = ImageHandler.all(tileImage, 10, 10, 1);
@@ -25,6 +28,9 @@ public class Images {
 		
 		fontTiles = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/font.png"));
 		font = ImageHandler.all(fontTiles, 27, 2, 2);
+		
+		wall = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/map.png"));
+		walls = ImageHandler.all(wall, 6, 7, 1);
 	}
 	
 }
