@@ -44,7 +44,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 	double sleepTime;
 	static double FPS = 60;
 	
-	public static boolean titleScreen = false;
+	public static boolean titleScreen = true;
 	
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
 	

@@ -8,6 +8,7 @@ import com.ionprogramming.ld28.level.Map;
 
 public class Entity {
 
+	public int id = 0;
 	public int speed = 4;
 	public int xpos;
 	public int ypos;
@@ -73,5 +74,9 @@ public class Entity {
 		if(e >= 0){
 			Game.entities.remove(e);
 		}
+	}
+	
+	public void trigger(int id){
+		
 	}
 }
