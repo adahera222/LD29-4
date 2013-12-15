@@ -14,7 +14,38 @@ public class Player extends Entity{
 	
 	@Override
 	public void ai(){
-		move(Keys.dir);
+		if(move(Keys.dir)){
+			if(movable){
+				if(xos < 0){
+					xos -= speed;
+				}
+				else if(xos > 0){
+					xos += speed;
+				}
+				if(yos < 0){
+					yos -= speed;
+				}
+				else if(yos > 0){
+					yos += speed;
+				}
+				if(xos >= 64){
+					xos = 0;
+					xpos++;
+				}
+				else if(xos <= -64){
+					xos = 0;
+					xpos--;
+				}
+				if(yos >= 64){
+					yos = 0;
+					ypos++;
+				}
+				else if(yos <= -64){
+					yos = 0;
+					ypos--;
+				}
+			}
+		}
 		if(xpos*64 + xos + 32 - Game.povx < Game.width/3){
 			Game.povx = xpos*64 + xos + 32 - Game.width/3;
 		}

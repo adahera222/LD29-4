@@ -24,42 +24,11 @@ public class Entity {
 	}
 	
 	public void update(Graphics g){
-		
-		if(movable){
-			if(xos < 0){
-				xos -= speed;
-			}
-			else if(xos > 0){
-				xos += speed;
-			}
-			if(yos < 0){
-				yos -= speed;
-			}
-			else if(yos > 0){
-				yos += speed;
-			}
-			if(xos >= 64){
-				xos = 0;
-				xpos++;
-			}
-			else if(xos <= -64){
-				xos = 0;
-				xpos--;
-			}
-			if(yos >= 64){
-				yos = 0;
-				ypos++;
-			}
-			else if(yos <= -64){
-				yos = 0;
-				ypos--;
-			}
-		}
 		ai();
 		draw(g);
 	}
 	
-	public void move(int dir){
+	public boolean move(int dir){
 		if(xos == 0 && yos == 0){
 			if(dir == 0){
 				if(ypos > 0){
@@ -89,11 +58,14 @@ public class Entity {
 					}
 				}
 			}
+			return false;
+		}
+		else{
+			return true;
 		}
 	}
 	
 	public void ai(){
-		
 	}
 	
 	public void destroy(){
