@@ -18,6 +18,10 @@ public class HUD {
 	
 	public static BufferedImage[]hud;
 
+	
+	static int flameNum = 0;
+	static int timer = 0;
+
 	public static void render(Graphics g){
 		
 		int min = Game.torchTimeLeft / 60;
@@ -52,14 +56,8 @@ public class HUD {
 		
 		g.setColor(Color.darkGray);
 		g.fillRect(Game.width - 200, Game.height - 80, 200, 40);
-
-		g.setColor(Color.darkGray);
 		g.fillRect(Game.width - 200, Game.height - 40, 200, 40);
-	
-		g.setColor(Color.darkGray);
 		g.fillRect(0, 0, 50, Game.height);
-		
-		g.setColor(Color.darkGray);
 		g.fillRect(30, Game.height - 80, 150, 80);
 		
 		g.drawImage(distance, Game.width / 2 - distance.getWidth() / 2, Game.height - 80 / 2 - distance.getHeight() / 2, null);
@@ -73,45 +71,18 @@ public class HUD {
 		renderTorch(g);
 	}
 	
-//	static int torchX = 10;
-//	static int torchY = 100; //from bottom before torch
-//	
-//	static int ticks = 0;
-//	static int tocks = 0;
-//	
-//	static int segments = 10;
-	
 	public static void renderTorch(Graphics g){
-		
+		g.drawImage(Images.torch, 8, 32, null);
+		g.setColor(Color.darkGray);
+		g.fillRect(0, 70, 50, 340 - 340*Game.torchTimeLeft/Game.timeLimit);
+		timer--;
+		if(timer <= 0){
+			timer = 5;
+			int old = flameNum;
+			while(flameNum == old){
+				flameNum = Torchlight.random.nextInt(4);
+			}
+		}
+		g.drawImage(Images.flames[flameNum], 8, 350 - 340*Game.torchTimeLeft/Game.timeLimit, null);
 	}
-	
-//	public static void renderTorch(Graphics g){
-//		
-//		ticks++;
-//		if(ticks > 10){
-//			ticks = 0;
-//			tocks++;
-//			if(tocks >= 3){
-//				tocks = 0;
-//			}
-//		}
-//		
-//		
-//		int segs = (int)(segments*((double)Game.torchTimeLeft/Game.timeLimit));
-//		
-//	
-//		//render the bottom
-//		g.drawImage(hud[3], torchX, Game.height - torchY - hud[3].getHeight(), null);
-//		
-//		//render middle
-//		for(int a = 1; a <= segs; a++){
-//			g.drawImage(hud[2], torchX, Game.height - torchY - hud[3].getHeight() - (a * hud[3].getHeight() ), null);
-//		}
-//		
-//		//render top...
-//		g.drawImage(hud[9 + tocks], torchX, Game.height - torchY - hud[3].getHeight()- (segs * hud[3].getHeight()) -  hud[3].getHeight(), null);
-//		
-//		//render smoke...
-//		g.drawImage(hud[5 + tocks], torchX, Game.height - torchY - hud[3].getHeight()- (segs * hud[3].getHeight()) -  hud[3].getHeight() -  hud[3].getHeight(), null);
-//	}
 }

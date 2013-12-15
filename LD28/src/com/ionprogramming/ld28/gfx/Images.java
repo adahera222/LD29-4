@@ -11,21 +11,17 @@ public class Images {
 
 	public static BufferedImage tileImage;
 	public static BufferedImage[] tiles;
-
 	public static BufferedImage titleScreen;
 	public static BufferedImage playButton;
-	
 	public static BufferedImage fontTiles;
 	public static BufferedImage[] font;
-	
 	public static BufferedImage wall;
 	public static BufferedImage[] walls;
-	
 	public static BufferedImage map1;
-	
-	public static BufferedImage hudImage;
-	
 	public static BufferedImage light;
+	public static BufferedImage torch;
+	public static BufferedImage flame;
+	public static BufferedImage[] flames;
 	
 	public static void load() throws IOException{
 		tileImage = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/images.png"));
@@ -45,8 +41,10 @@ public class Images {
 		
 		map1 = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/map1.png"));
 		
-		hudImage = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/HUD.png"));
-		HUD.hud = ImageHandler.all(hudImage, 4, 4, 1);
+		torch = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/torch.png"));
+		
+		flame = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/flame.png"));
+		flames = ImageHandler.all(flame, 4, 1, 1);
 		
 		makeLight();
 	}
