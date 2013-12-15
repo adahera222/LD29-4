@@ -21,6 +21,9 @@ public class Images {
 	
 	public static BufferedImage map1;
 	
+	public static BufferedImage hudImage;
+	
+	
 	
 	public static void load() throws IOException{
 		tileImage = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/images.png"));
@@ -39,7 +42,10 @@ public class Images {
 		font = ImageHandler.all(fontTiles, 27, 2, 1);
 		
 		map1 = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/map1.png"));
-
+		
+		hudImage = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/HUD.png"));
+		HUD.hud = ImageHandler.all(hudImage, 4, 4, 1);
+		
 	}
 	
 }
