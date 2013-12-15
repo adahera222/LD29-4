@@ -13,7 +13,7 @@ public class Update {
 		for(int n = 0; n < Game.entities.size(); n++){
 			Game.entities.get(n).update(g);
 		}
-		
+		Torchlight.render(g);
 		HUD.render(g);
 	}
 

@@ -25,6 +25,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 	
 	public static int currentFloor = 5;
 	
+	public static int timeLimit = 135;
 	public static int torchTimeLeft = 135;
 	
 	public static int povx = 0;
@@ -40,7 +41,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 	
 	static double time;
 	double sleepTime;
-	static double FPS = 20;
+	static double FPS = 60;
 	
 	public static boolean titleScreen = false;
 	
@@ -69,8 +70,8 @@ public class Game extends Applet implements Runnable, KeyListener{
 	public void run(){
 		Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
 		while(true){
-			repaint();
 			time = System.nanoTime();
+			repaint();
 			sleepTime = 1000/FPS - (System.nanoTime() - time)/1000000;
 			try{
 				if(sleepTime > 10){
