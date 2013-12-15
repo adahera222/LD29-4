@@ -18,7 +18,9 @@ public class Entity {
 	boolean movable = false;
 	
 	public void draw(Graphics g){
-		g.drawImage(imgs[currentImage], xpos*64 + xos, ypos*64 + yos, null);
+		if(xpos*64 + xos - Game.povx > -64 && xpos*64 + xos - Game.povx < Game.width && ypos*64 + yos - Game.povy > -64 && ypos*64 + yos - Game.povy < Game.height){
+			g.drawImage(imgs[currentImage], xpos*64 + xos - Game.povx, ypos*64 + yos - Game.povy, null);
+		}
 	}
 	
 	public void update(Graphics g){

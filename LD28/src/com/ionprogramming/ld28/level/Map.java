@@ -2,6 +2,7 @@ package com.ionprogramming.ld28.level;
 
 import java.awt.Graphics;
 
+import com.ionprogramming.ld28.Game;
 import com.ionprogramming.ld28.gfx.Images;
 
 public class Map {
@@ -13,7 +14,9 @@ public class Map {
 	public static void render(Graphics g){
 		for(int y = 0; y < map.length; y++){
 			for(int x = 0; x < map[y].length; x++){
-				g.drawImage(Images.walls[map[y][x]], x*64, y*64, null);
+				if(x*64 - Game.povx > -64 && x*64 - Game.povx < Game.width && y*64 - Game.povy > -64 && y*64 - Game.povy < Game.height){
+					g.drawImage(Images.walls[map[y][x]], x*64 - Game.povx, y*64 - Game.povy, null);
+				}
 			}
 		}
 	}

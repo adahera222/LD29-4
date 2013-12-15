@@ -27,105 +27,106 @@ public class Game extends Applet implements Runnable, KeyListener{
 	
 	public static int torchTimeLeft = 135;
 	
+	public static int povx = 0;
+	public static int povy = 0;
 	
-		private static final long serialVersionUID = 1L;
-		
-		private Image dbImage;
-		private Graphics dbg;
+	private static final long serialVersionUID = 1L;
 	
-		public static int width = 780;
-		public static int height = 520;
+	private Image dbImage;
+	private Graphics dbg;
 		
-		static double time;
-		double sleepTime;
-		static double FPS = 60;
-		
-		public static boolean titleScreen = false;
-		
-		public static ArrayList<Entity> entities = new ArrayList<Entity>();
-		
-		public void init(){
-			addKeyListener(this);
-			setSize(width, height);
-			setFocusable(true);
-			setBackground(Color.black);
-			try {
-				Images.load();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			HUD.genTxt();
-			Levels.init(1);
+	public static int width = 780;
+	public static int height = 520;
+	
+	static double time;
+	double sleepTime;
+	static double FPS = 20;
+	
+	public static boolean titleScreen = false;
+	
+	public static ArrayList<Entity> entities = new ArrayList<Entity>();
+	
+	public void init(){
+		addKeyListener(this);
+		setSize(width, height);
+		setFocusable(true);
+		setBackground(Color.black);
+		try {
+			Images.load();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
-		
-		public void start(){
-			Thread th = new Thread(this);
-			th.start();
-		}
-		
-		public void run(){
-			Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
-			while(true){
-				repaint();
-				time = System.nanoTime();
-				sleepTime = 1000/FPS - (System.nanoTime() - time)/1000000;
-				try{
-					if(sleepTime > 10){
-						Thread.sleep((long) sleepTime);
-					}
-					else{
-						Thread.sleep(10);
-					}
-				} 	
-				catch(InterruptedException ex){
-					ex.printStackTrace();
+		HUD.genTxt();
+		Levels.init(1);
+	}
+	
+	
+	public void start(){
+		Thread th = new Thread(this);
+		th.start();
+	}
+	
+	public void run(){
+		Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+		while(true){
+			repaint();
+			time = System.nanoTime();
+			sleepTime = 1000/FPS - (System.nanoTime() - time)/1000000;
+			try{
+				if(sleepTime > 10){
+					Thread.sleep((long) sleepTime);
 				}
-				Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
+				else{
+					Thread.sleep(10);
+				}
+			} 	
+			catch(InterruptedException ex){
+				ex.printStackTrace();
 			}
+			Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
 		}
-		
-		public void paint(Graphics g){
-			width = Window.getWindows()[0].getWidth() - 6;
-			height = Window.getWindows()[0].getHeight() - 32;
-			
-			if(titleScreen){
-				TitleScreen.renderScreen(g);
-			}
-			else{
-				Update.update(g);
-			}
-			
+	}
+	
+	public void paint(Graphics g){
+		width = Window.frame.getWidth() - 6;
+		height = Window.frame.getHeight() - 32;
+		setSize(width, height);
+		if(titleScreen){
+			TitleScreen.renderScreen(g);
 		}
-		
-		public void update(Graphics g){
-			if (dbImage == null){
-		        dbImage = createImage (this.getSize().width, this.getSize().height);
-		        dbg = dbImage.getGraphics ();
-		    }
-		    dbg.setColor (getBackground ());
-		    dbg.fillRect (0, 0, this.getSize().width, this.getSize().height);
-		    dbg.setColor (getForeground());	    
-		    paint (dbg);
-		    g.drawImage (dbImage, 0, 0, this);
+		else{
+			Update.update(g);
 		}
-
-
-		@Override
-		public void keyPressed(KeyEvent e){
-			Keys.keyPressed(e);			
-		}
-
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-			Keys.keyReleased(e);		
-		}
-
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			Keys.keyTyped(e);
-		}
+	}
+	
+	public void update(Graphics g){
+		if (dbImage == null){
+	        dbImage = createImage (this.getSize().width, this.getSize().height);
+	        dbg = dbImage.getGraphics ();
+	    }
+	    dbg.setColor (getBackground ());
+	    dbg.fillRect (0, 0, this.getSize().width, this.getSize().height);
+	    dbg.setColor (getForeground());	    
+	    paint (dbg);
+	    g.drawImage (dbImage, 0, 0, this);
+	}
+	
+	
+	@Override
+	public void keyPressed(KeyEvent e){
+		Keys.keyPressed(e);			
+	}
+	
+	
+	@Override
+	public void keyReleased(KeyEvent e) {
+		Keys.keyReleased(e);		
+	}
+	
+	
+	@Override
+	public void keyTyped(KeyEvent e) {
+		Keys.keyTyped(e);
+	}
 }
 		

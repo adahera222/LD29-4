@@ -11,12 +11,13 @@ public class Window extends JFrame {
 	 static final long serialVersionUID = 1L;
 	 
 		private JPanel contentPane;
-
+		public static Window frame;
+		
 		public static void main(String[] args) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						Window frame = new Window();
+						frame = new Window();
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
