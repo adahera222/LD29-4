@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.ionprogramming.ld28.entities.Entity;
-import com.ionprogramming.ld28.gfx.HUD;
 import com.ionprogramming.ld28.gfx.Images;
 import com.ionprogramming.ld28.gfx.TitleScreen;
 import com.ionprogramming.ld28.gfx.Update;
@@ -58,7 +57,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		HUD.genTxt();
+//		HUD.genTxt();
 		Levels.init(1);
 	}
 	
@@ -72,10 +71,6 @@ public class Game extends Applet implements Runnable, KeyListener{
 		Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
 		while(true){
 			time = System.nanoTime();
-			if(System.nanoTime() - ticker >= 1000000000){
-				torchTimeLeft--;
-				ticker = System.nanoTime();
-			}
 			repaint();
 			sleepTime = 1000/FPS - (System.nanoTime() - time)/1000000;
 			try{
@@ -102,6 +97,10 @@ public class Game extends Applet implements Runnable, KeyListener{
 		}
 		else{
 			Update.update(g);
+			if(System.nanoTime() - ticker >= 1000000000){
+				torchTimeLeft--;
+				ticker = System.nanoTime();
+			}
 		}
 	}
 	
