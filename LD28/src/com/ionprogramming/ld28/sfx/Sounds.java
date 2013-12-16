@@ -23,6 +23,7 @@ public class Sounds {
 	public static Media pp;
 	public static Media die;
 	public static Media s1;
+	public static Media title;
 	
 	public static void load(){
 		try{
@@ -40,7 +41,7 @@ public class Sounds {
 			die = new Media(Sounds.class.getClassLoader().getResource("res/sfx/die.mp3").toString());
 			
 			s1 = new Media(Sounds.class.getClassLoader().getResource("res/music/s1.mp3").toString());
-
+			title = new Media(Sounds.class.getClassLoader().getResource("res/music/title.mp3").toString());
 		}
 		catch(Exception e){
 			e.printStackTrace();

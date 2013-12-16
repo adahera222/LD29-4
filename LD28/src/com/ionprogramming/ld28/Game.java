@@ -63,6 +63,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 			e.printStackTrace();
 		}
 		HUD.initSmoke();
+		Sounds.playMusic(Sounds.title);
 	}
 	
 	

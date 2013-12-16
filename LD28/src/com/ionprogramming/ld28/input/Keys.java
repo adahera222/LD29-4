@@ -16,6 +16,7 @@ public class Keys {
 		if(Game.titleScreen){
 			if(e.getKeyCode() == KeyEvent.VK_ENTER){
 				Game.titleScreen = false;
+				Sounds.getPlayer(Sounds.title).stop();
 				Sounds.playMusic(Sounds.s1);
 				Levels.init(1);
 			}

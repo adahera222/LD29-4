@@ -21,6 +21,5 @@ public class TitleScreen {
 		g.fillRect(Game.width / 2 - Images.titleScreen.getWidth() / 2, 50, Images.titleScreen.getWidth(), Images.titleScreen.getHeight());
 		g.drawImage(Images.titleScreen, Game.width / 2 - Images.titleScreen.getWidth() / 2, 50, null);
 		g.drawImage(Images.playButton, Game.width / 2 - Images.playButton.getWidth() / 2, Game.height - 150, null);
-		
 	}
 }
