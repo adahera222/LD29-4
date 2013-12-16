@@ -28,18 +28,41 @@ public class Player extends Entity{
 		}
 		if(move(Keys.dir)){
 			if(movable){
-				
 				if(xos < 0){
 					xos -= speed;
+					if(xos < -32){
+						currentImage = 12;
+					}
+					else{
+						currentImage = 13;
+					}
 				}
 				else if(xos > 0){
 					xos += speed;
+					if(xos > 32){
+						currentImage = 10;
+					}
+					else{
+						currentImage = 11;
+					}
 				}
 				if(yos < 0){
 					yos -= speed;
+					if(yos < -32){
+						currentImage = 14;
+					}
+					else{
+						currentImage = 15;
+					}
 				}
 				else if(yos > 0){
 					yos += speed;
+					if(xos > 32){
+						currentImage = 8;
+					}
+					else{
+						currentImage = 9;
+					}
 				}
 				if(xos >= 64){
 					xos = 0;
