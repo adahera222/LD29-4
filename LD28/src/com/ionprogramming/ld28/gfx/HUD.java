@@ -2,6 +2,7 @@ package com.ionprogramming.ld28.gfx;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -21,6 +22,10 @@ public class HUD {
 	
 	static int flameNum = 0;
 	static int timer = 0;
+
+	static Color c = new Color(0, 0, 0, 255);
+	static GradientPaint side = new GradientPaint(50, 0, c, 75, 0, new Color(0, 0, 0, 0));
+	static GradientPaint bottom = new GradientPaint(0, Game.height - 60, c, 0, Game.height - 85, new Color(0, 0, 0, 0));
 
 	public static void render(Graphics g){
 		
@@ -51,30 +56,27 @@ public class HUD {
 		
 		timeLeft = DrawString.make(time, time.length(), 2, 0xFFFFFF);
 		
-		g.setColor(Color.black);
-		g.fillRect(0, Game.height - 80, Game.width, 80);
-		
-		g.setColor(Color.darkGray);
-		g.fillRect(Game.width - 200, Game.height - 80, 200, 40);
-		g.fillRect(Game.width - 200, Game.height - 40, 200, 40);
-		g.fillRect(0, 0, 50, Game.height);
-		g.fillRect(30, Game.height - 80, 150, 80);
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setPaint(side);
+		g2.fillRect(0, 0, 75, Game.height);
+		g2.setPaint(bottom);
+		g2.fillRect(0, Game.height - 85, Game.width, 85);
 		
 		g.drawImage(distance, Game.width / 2 - distance.getWidth() / 2, Game.height - 80 / 2 - distance.getHeight() / 2, null);
 		
 		g.drawImage(timeLeft, 40, Game.height - 40 - timeLeft.getHeight() / 2, null);
-		Graphics2D g2 = (Graphics2D) g;
+		
         g2.setStroke(new BasicStroke(3));
 		g2.setColor(Color.WHITE);
 		g2.drawOval(Game.width - (200 / 2) - (60 / 2), Game.height - 80 + 5, 61, 61);
 		g2.setColor(Color.red);
 		g2.drawLine(Game.width - (200 / 2) - (60 / 2) + 30, Game.height - 80 + 35, Game.width - (200 / 2) - (60 / 2) + 30 + cx, Game.height - 80 + 35 + cy);
-		renderTorch(g);
+		renderTorch(g2);
 	}
 	
-	public static void renderTorch(Graphics g){
+	public static void renderTorch(Graphics2D g){
 		g.drawImage(Images.torch, 8, 32, null);
-		g.setColor(Color.darkGray);
+		g.setPaint(side);
 		g.fillRect(0, 70, 50, 340 - 340*Game.torchTimeLeft/Game.timeLimit);
 		timer--;
 		if(timer <= 0){
@@ -84,7 +86,7 @@ public class HUD {
 				flameNum = Torchlight.random.nextInt(4);
 			}
 		}
-		g.setColor(Color.gray.darker());
+		g.setColor(Color.darkGray);
 		for(int n = 0; n < smoke.length; n++){
 			smoke[n].update(g);
 		}
