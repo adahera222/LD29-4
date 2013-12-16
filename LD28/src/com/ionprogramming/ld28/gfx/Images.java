@@ -30,7 +30,7 @@ public class Images {
 		titleScreen = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/titleScreen.png"));
 		playButton = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/play.png"));
 		
-		fontTiles = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/font.png"));
+		fontTiles = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/font1.png"));
 
 		font = ImageHandler.all(fontTiles, 27, 2, 2);
 		
