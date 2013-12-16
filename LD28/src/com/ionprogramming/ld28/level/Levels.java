@@ -97,7 +97,7 @@ public class Levels {
 			Minimap.map = new int[Map.map.length][Map.map[0].length];
 			
 
-			Sounds.playMusic(Sounds.s[4]);
+			Sounds.playMusic(Sounds.s1);
 
 			Cutscenes.trig(1);
 

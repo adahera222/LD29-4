@@ -10,7 +10,7 @@ import com.ionprogramming.ld28.entities.Player;
 
 public class Minimap {
 	
-	static int ms = 3;
+	static int ms = 5;
 	static int[][] map;
 	public static boolean show = false;
 	static BufferedImage disp;
@@ -43,7 +43,7 @@ public class Minimap {
 			disp = new BufferedImage(map[0].length*ms, map.length*ms, BufferedImage.TYPE_INT_ARGB);
 			Graphics2D g2 = disp.createGraphics();
 			g2.setColor(c1);
-			g2.fillRect(0, 0, map.length*ms, map[0].length*ms);
+			g2.fillRect(0, 0, map[0].length*ms, map.length*ms);
 			g2.setColor(c2);
 			for(int y = 0; y < map.length; y++){
 				for(int x = 0; x < map[y].length; x++){
