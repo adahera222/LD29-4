@@ -16,7 +16,7 @@ public class Pit extends Entity {
 		this.xpos = x;
 		this.ypos = y;
 		imgs = Images.tiles;
-		currentImage = 4;
+		currentImage = 2;
 		this.id = id;
 	}
 	
@@ -53,7 +53,7 @@ public class Pit extends Entity {
 			}
 			
 		}
-		currentImage = 4 + stage;	
+		currentImage = 2 + stage;	
 	}
 	
 	@Override
@@ -65,7 +65,9 @@ public class Pit extends Entity {
 		}
 		
 		if(id == 1 && open){
+			if(!Player.die) Sounds.play(Sounds.die);
 			Player.die = true;
+			
 			Cutscenes.trig(2);
 		}
 		

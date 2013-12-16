@@ -9,7 +9,7 @@ public class WinBlock extends Entity {
 		this.xpos = x;
 		this.ypos = y;
 		imgs = Images.tiles;
-		currentImage = 9;
+		currentImage = 7;
 	}
 	
 	@Override
