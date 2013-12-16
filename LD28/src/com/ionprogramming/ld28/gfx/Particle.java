@@ -15,7 +15,7 @@ public class Particle {
 	}
 	
 	public void update(Graphics g){
-		y-= 0.2;
+		y-= 0.4;
 		if(Torchlight.random.nextInt(250) == 0){
 			y = (int)(380 - 340*Game.torchTimeLeft/Game.timeLimit);
 			x = Torchlight.random.nextInt(32) + 8;

@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import com.ionprogramming.ld28.Game;
 import com.ionprogramming.ld28.level.Map;
+import com.ionprogramming.ld28.level.Minimap;
 
 
 public class Update {
@@ -15,6 +16,7 @@ public class Update {
 		}
 		Torchlight.render(g);
 		HUD.render(g);
+		Minimap.update(g);
 	}
 
 }

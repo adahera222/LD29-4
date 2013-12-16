@@ -2,9 +2,9 @@ package com.ionprogramming.ld28.entities;
 
 import com.ionprogramming.ld28.gfx.Images;
 
-public class FireShooter extends Entity {
+public class Door extends Entity {
 
-	public FireShooter(int x, int y, int id){
+	public Door(int x, int y, int id){
 		this.xpos = x;
 		this.ypos = y;
 		imgs = Images.tiles;

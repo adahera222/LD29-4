@@ -27,19 +27,19 @@ public class Torchlight {
 		}
 		g.setColor(new Color(0, 0, 0, a));
 		g.fillRect(0, 0, Game.width, Game.height);
-		g.drawImage(Images.light, Player.xp*64 + Player.xo - Game.povx - 224, Player.yp*64 + Player.yo - Game.povy - 224, null);
+		g.drawImage(Images.light, Player.xp*64 + Player.xo - Game.povx - 328, Player.yp*64 + Player.yo - Game.povy - 328, null);
 		g.setColor(new Color(0, 0, 0, 240));
-		if(Player.yp*64 + Player.yo - Game.povy - 224 > 0){
-			g.fillRect(0, 0, Game.width, Player.yp*64 + Player.yo - Game.povy - 224);
+		if(Player.yp*64 + Player.yo - Game.povy - 328 > 0){
+			g.fillRect(0, 0, Game.width, Player.yp*64 + Player.yo - Game.povy - 328);
 		}
-		if(Player.yp*64 + Player.yo - Game.povy + 288 < Game.height){
-			g.fillRect(0, Player.yp*64 + Player.yo - Game.povy + 288, Game.width, Game.height - (Player.yp*64 + Player.yo - Game.povy + 288));
+		if(Player.yp*64 + Player.yo - Game.povy + 392 < Game.height){
+			g.fillRect(0, Player.yp*64 + Player.yo - Game.povy + 392, Game.width, Game.height - (Player.yp*64 + Player.yo - Game.povy + 392));
 		}
 		if(Player.xp*64 + Player.xo - Game.povx - 224 > 0){
-			g.fillRect(0, Player.yp*64 + Player.yo - Game.povy - 224, Player.xp*64 + Player.xo - Game.povx - 224, 512);
+			g.fillRect(0, Player.yp*64 + Player.yo - Game.povy - 328, Player.xp*64 + Player.xo - Game.povx - 328, 720);
 		}
-		if(Player.xp*64 + Player.xo - Game.povx + 288 < Game.width){
-			g.fillRect(Player.xp*64 + Player.xo - Game.povx + 288, Player.yp*64 + Player.yo - Game.povy - 224, Game.width - (Player.xp*64 + Player.xo - Game.povx + 288), 512);
+		if(Player.xp*64 + Player.xo - Game.povx + 392 < Game.width){
+			g.fillRect(Player.xp*64 + Player.xo - Game.povx + 392, Player.yp*64 + Player.yo - Game.povy - 328, Game.width - (Player.xp*64 + Player.xo - Game.povx + 392), 720);
 		}
 	}
 }

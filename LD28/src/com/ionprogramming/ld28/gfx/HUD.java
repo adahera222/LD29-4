@@ -84,7 +84,7 @@ public class HUD {
 				flameNum = Torchlight.random.nextInt(4);
 			}
 		}
-		g.setColor(Color.gray);
+		g.setColor(Color.gray.darker());
 		for(int n = 0; n < smoke.length; n++){
 			smoke[n].update(g);
 		}

@@ -50,15 +50,15 @@ public class Images {
 	}
 	
 	public static void makeLight(){
-		light = new BufferedImage(512, 512, BufferedImage.TYPE_INT_ARGB);
+		light = new BufferedImage(720, 720, BufferedImage.TYPE_INT_ARGB);
 		Graphics g2 = light.createGraphics();
 		Color c;
 		for(int y = 0; y < light.getHeight(); y++){
 			for(int x = 0; x < light.getWidth(); x++){
-				double dist = (int)Math.sqrt((x - 256)*(x - 256) + (y - 256)*(y - 256));
+				double dist = (int)Math.sqrt((x - 360)*(x - 360) + (y - 360)*(y - 360));
 				int a;
-				if(dist < 256){
-					a = (int)(240*dist/256 + 15);
+				if(dist < 360){
+					a = (int)(240*dist/360 + 15);
 				}
 				else{
 					a = 240;

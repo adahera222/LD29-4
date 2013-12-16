@@ -25,8 +25,8 @@ public class Game extends Applet implements Runnable, KeyListener{
 	
 	public static int currentFloor = 5;
 	
-	public static int timeLimit = 180;
-	public static int torchTimeLeft = 180;
+	public static int timeLimit = 600;
+	public static int torchTimeLeft = 600;
 	
 	public static int povx = 0;
 	public static int povy = 0;
