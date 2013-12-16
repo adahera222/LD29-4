@@ -47,13 +47,14 @@ public class Sounds {
 		}
 	}
 	
-	public static void play(Media m){
+	public static void play(final Media m){
 		final MediaPlayer med = new MediaPlayer(m);
 		med.play();
 		med.setOnEndOfMedia(new Runnable() {
 		    @Override
 		    public void run() {
-		       players.remove(med);
+		    	players.get(getPlayerIndex(m)).dispose();
+		    	players.remove(med);
 		    }
 		});
 		players.add(med);

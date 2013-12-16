@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import javafx.embed.swing.JFXPanel;
 
 import com.ionprogramming.ld28.entities.Entity;
+import com.ionprogramming.ld28.entities.Player;
+import com.ionprogramming.ld28.gfx.Cutscenes;
 import com.ionprogramming.ld28.gfx.HUD;
 import com.ionprogramming.ld28.gfx.Images;
 import com.ionprogramming.ld28.gfx.TitleScreen;
@@ -22,8 +24,8 @@ import com.ionprogramming.ld28.sfx.Sounds;
 
 public class Game extends Applet implements Runnable, KeyListener{
 	
-	public static int timeLimit = 600;
-	public static int torchTimeLeft = 600;
+	public static int timeLimit = 3600;
+	public static int torchTimeLeft = 3600;
 	
 	public static int povx = 0;
 	public static int povy = 0;
@@ -105,6 +107,11 @@ public class Game extends Applet implements Runnable, KeyListener{
 			if(System.nanoTime() - ticker >= 1000000000){
 				torchTimeLeft--;
 				ticker = System.nanoTime();
+			}
+			if(torchTimeLeft <= 0){
+				Player.die = true;
+				
+				Cutscenes.trig(2);
 			}
 		}
 	}
