@@ -10,13 +10,14 @@ import com.ionprogramming.ld28.entities.PressurePlate;
 import com.ionprogramming.ld28.entities.WinBlock;
 import com.ionprogramming.ld28.gfx.Cutscenes;
 import com.ionprogramming.ld28.gfx.Images;
-import com.ionprogramming.ld28.sfx.Sounds;
 
 public class Levels {
 
 	public static void init(int level){
 		Game.entities.clear();
+		
 		if(level == 1){
+			Game.torchTimeLeft = Game.timeLimit;
 			
 			Game.entities.add(new PressurePlate(1, 2, 5));
 			Game.entities.add(new Pit(1, 3, 5));
@@ -97,7 +98,7 @@ public class Levels {
 			Minimap.map = new int[Map.map.length][Map.map[0].length];
 			
 
-			Sounds.playMusic(Sounds.s1);
+			
 
 			Cutscenes.trig(1);
 

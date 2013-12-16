@@ -10,6 +10,7 @@ public class Player extends Entity{
 	public static int yp;
 	public static int xo;
 	public static int yo;
+	public static boolean die = false;
 	
 	public Player(int xpos, int ypos){
 		this.xpos = xpos;
@@ -17,10 +18,14 @@ public class Player extends Entity{
 		imgs = Images.tiles;
 		movable = true;
 		this.id = 1;
+		die = false;
 	}
 	
 	@Override
 	public void ai(){
+		if(die){
+			Keys.dir = 5;
+		}
 		if(move(Keys.dir)){
 			if(movable){
 				

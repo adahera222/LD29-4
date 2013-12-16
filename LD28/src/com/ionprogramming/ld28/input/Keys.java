@@ -3,8 +3,10 @@ package com.ionprogramming.ld28.input;
 import java.awt.event.KeyEvent;
 
 import com.ionprogramming.ld28.Game;
+import com.ionprogramming.ld28.entities.Player;
 import com.ionprogramming.ld28.level.Levels;
 import com.ionprogramming.ld28.level.Minimap;
+import com.ionprogramming.ld28.sfx.Sounds;
 
 public class Keys {
 	
@@ -14,6 +16,7 @@ public class Keys {
 		if(Game.titleScreen){
 			if(e.getKeyCode() == KeyEvent.VK_ENTER){
 				Game.titleScreen = false;
+				Sounds.playMusic(Sounds.s1);
 				Levels.init(1);
 			}
 		}
@@ -24,7 +27,7 @@ public class Keys {
 
 			}
 		}
-		else{
+		else if(!Player.die){
 			if(e.getKeyCode() == KeyEvent.VK_W){
 				dir = 0;
 			}
@@ -51,7 +54,7 @@ public class Keys {
 		else if(Game.won){
 			
 		}
-		else{
+		else if(!Player.die){
 			if(e.getKeyCode() == KeyEvent.VK_W && dir == 0){
 				dir = 5;
 			}

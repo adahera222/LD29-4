@@ -65,7 +65,7 @@ public class Pit extends Entity {
 		}
 		
 		if(id == 1 && open){
-		
+			Player.die = true;
 			Cutscenes.trig(2);
 		}
 		
