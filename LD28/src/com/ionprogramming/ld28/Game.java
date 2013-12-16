@@ -21,11 +21,6 @@ import com.ionprogramming.ld28.sfx.Sounds;
 
 
 public class Game extends Applet implements Runnable, KeyListener{
-
-	public static int puzzlesComplete = 1;
-	public static int totalPuzzles = 20;
-	
-	public static int currentFloor = 5;
 	
 	public static int timeLimit = 600;
 	public static int torchTimeLeft = 600;
@@ -47,6 +42,8 @@ public class Game extends Applet implements Runnable, KeyListener{
 	static double FPS = 60;
 	
 	public static boolean titleScreen = true;
+	
+	public static boolean won = false;
 	
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
 	
@@ -99,6 +96,9 @@ public class Game extends Applet implements Runnable, KeyListener{
 		setSize(width, height);
 		if(titleScreen){
 			TitleScreen.renderScreen(g);
+		}
+		else if(won){
+			g.drawImage(Images.won, 0, 0, null);
 		}
 		else{
 			Update.update(g);

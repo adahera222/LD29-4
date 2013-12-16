@@ -17,6 +17,13 @@ public class Keys {
 				Levels.init(1);
 			}
 		}
+		else if(Game.won){
+			if(e.getKeyCode() == KeyEvent.VK_ENTER){
+				Game.won = false;
+				Levels.init(1);
+
+			}
+		}
 		else{
 			if(e.getKeyCode() == KeyEvent.VK_W){
 				dir = 0;
@@ -39,6 +46,9 @@ public class Keys {
 
 	public static void keyReleased(KeyEvent e) {
 		if(Game.titleScreen){
+			
+		}
+		else if(Game.won){
 			
 		}
 		else{

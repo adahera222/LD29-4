@@ -11,8 +11,8 @@ public class Map {
 	
 	public static int[][] map1 = new int[][] {{0, 1, 1, 0 }, {1, 1, 0, 1}, {0, 1, 0, 1}, {1, 1, 1, 1}};
 	
-	public static int targetX = 80;
-	public static int targetY = 80;
+	public static int targetX = 52;
+	public static int targetY = 56;
 	
 	public static void render(Graphics g){
 		for(int y = 0; y < map.length; y++){

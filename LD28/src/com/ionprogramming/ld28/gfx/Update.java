@@ -17,6 +17,6 @@ public class Update {
 		}
 		Torchlight.render(g);
 		HUD.render(g);
-//		Music.update();
+		Cutscenes.render(g);
 	}
 }

@@ -23,6 +23,8 @@ public class Images {
 	public static BufferedImage flame;
 	public static BufferedImage[] flames;
 	
+	public static BufferedImage won;
+	
 	public static void load() throws IOException{
 		tileImage = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/images.png"));
 		tiles = ImageHandler.all(tileImage, 10, 10, 1);
@@ -45,6 +47,8 @@ public class Images {
 		
 		flame = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/flame.png"));
 		flames = ImageHandler.all(flame, 4, 1, 1);
+		
+		won = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/won.png"));
 		
 		makeLight();
 	}

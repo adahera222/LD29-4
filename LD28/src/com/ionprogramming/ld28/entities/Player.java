@@ -23,6 +23,7 @@ public class Player extends Entity{
 	public void ai(){
 		if(move(Keys.dir)){
 			if(movable){
+				
 				if(xos < 0){
 					xos -= speed;
 				}
@@ -38,18 +39,22 @@ public class Player extends Entity{
 				if(xos >= 64){
 					xos = 0;
 					xpos++;
+					Pit.playerMoved = true;
 				}
 				else if(xos <= -64){
 					xos = 0;
 					xpos--;
+					Pit.playerMoved = true;
 				}
 				if(yos >= 64){
 					yos = 0;
 					ypos++;
+					Pit.playerMoved = true;
 				}
 				else if(yos <= -64){
 					yos = 0;
 					ypos--;
+					Pit.playerMoved = true;
 				}
 			}
 		}

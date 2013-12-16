@@ -22,9 +22,19 @@ public class Sounds {
 	public static Media pit;
 	public static Media wind;
 
+
 	public static Media[] s = new Media[5];
 	
 	static int playing = 4;
+
+
+	public static Media fall;
+	public static Media win;
+	public static Media s1;
+	public static Media s2;
+	public static Media s3;
+	public static Media s4;
+	public static Media s5;
 
 
 	public static void load(){
@@ -36,6 +46,16 @@ public class Sounds {
 			glass = new Media(Sounds.class.getClassLoader().getResource("res/sfx/glass.mp3").toString());
 			pit = new Media(Sounds.class.getClassLoader().getResource("res/sfx/pit.mp3").toString());
 			wind = new Media(Sounds.class.getClassLoader().getResource("res/sfx/wind.mp3").toString());
+
+			//TODO: Proper SFX Files
+			fall = new Media(Sounds.class.getClassLoader().getResource("res/sfx/wind.mp3").toString());
+			win = new Media(Sounds.class.getClassLoader().getResource("res/sfx/wind.mp3").toString());
+			
+			s1 = new Media(Sounds.class.getClassLoader().getResource("res/music/1.mp3").toString());
+			s2 = new Media(Sounds.class.getClassLoader().getResource("res/music/2.mp3").toString());
+			s3 = new Media(Sounds.class.getClassLoader().getResource("res/music/3.mp3").toString());
+			s4 = new Media(Sounds.class.getClassLoader().getResource("res/music/4.mp3").toString());
+			s5 = new Media(Sounds.class.getClassLoader().getResource("res/music/5.mp3").toString());
 
 
 			s[0] = new Media(Sounds.class.getClassLoader().getResource("res/music/1.mp3").toString());
