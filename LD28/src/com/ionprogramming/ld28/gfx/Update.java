@@ -16,5 +16,4 @@ public class Update {
 		Torchlight.render(g);
 		HUD.render(g);
 	}
-
 }
