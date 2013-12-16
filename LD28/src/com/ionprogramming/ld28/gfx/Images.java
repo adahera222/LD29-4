@@ -27,7 +27,7 @@ public class Images {
 	
 	public static void load() throws IOException{
 		tileImage = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/images.png"));
-		tiles = ImageHandler.all(tileImage, 10, 10, 1);
+		tiles = ImageHandler.all(tileImage, 8, 2, 1);
 		
 		titleScreen = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/titleScreen.png"));
 		playButton = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/play.png"));
