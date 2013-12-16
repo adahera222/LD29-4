@@ -6,40 +6,34 @@ import java.util.Random;
 
 import com.ionprogramming.ld28.Game;
 import com.ionprogramming.ld28.entities.Player;
+import com.ionprogramming.ld28.level.Minimap;
 
 public class Torchlight {
+	
 	static Random random = new Random();
 	static int flicker = 0;
 	static int dif = 0;
+	static Color c = new Color(0, 0, 0);
+	static int a;
+	
 	public static void render(Graphics g){
-		int a = 255 - (int)(240*((double)Game.torchTimeLeft/Game.timeLimit));
+		g.drawImage(Images.light, Player.xp*64 + Player.xo - Game.povx - 518, Player.yp*64 + Player.yo - Game.povy - 328, null);
+		Minimap.update(g);
 		if(flicker == 0){
+			a = 255 - (int)(240*((double)Game.torchTimeLeft/Game.timeLimit));
 			dif = random.nextInt(40) - 20;
 			flicker = 5;
+			a += dif;
+			if(a < 15){
+				a = 15;
+			}
+			else if(a > 255){
+				a = 255;
+			}
+			c = new Color(0, 0, 0, a);
 		}
 		flicker--;
-		a += dif;
-		if(a < 15){
-			a = 15;
-		}
-		else if(a > 255){
-			a = 255;
-		}
-		g.setColor(new Color(0, 0, 0, a));
+		g.setColor(c);
 		g.fillRect(0, 0, Game.width, Game.height);
-		g.drawImage(Images.light, Player.xp*64 + Player.xo - Game.povx - 328, Player.yp*64 + Player.yo - Game.povy - 328, null);
-		g.setColor(new Color(0, 0, 0, 240));
-		if(Player.yp*64 + Player.yo - Game.povy - 328 > 0){
-			g.fillRect(0, 0, Game.width, Player.yp*64 + Player.yo - Game.povy - 328);
-		}
-		if(Player.yp*64 + Player.yo - Game.povy + 392 < Game.height){
-			g.fillRect(0, Player.yp*64 + Player.yo - Game.povy + 392, Game.width, Game.height - (Player.yp*64 + Player.yo - Game.povy + 392));
-		}
-		if(Player.xp*64 + Player.xo - Game.povx - 224 > 0){
-			g.fillRect(0, Player.yp*64 + Player.yo - Game.povy - 328, Player.xp*64 + Player.xo - Game.povx - 328, 720);
-		}
-		if(Player.xp*64 + Player.xo - Game.povx + 392 < Game.width){
-			g.fillRect(Player.xp*64 + Player.xo - Game.povx + 392, Player.yp*64 + Player.yo - Game.povy - 328, Game.width - (Player.xp*64 + Player.xo - Game.povx + 392), 720);
-		}
 	}
 }
