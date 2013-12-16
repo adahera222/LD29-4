@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import com.ionprogramming.ld28.Game;
-import com.ionprogramming.ld28.entities.Door;
+import com.ionprogramming.ld28.entities.Pit;
 import com.ionprogramming.ld28.entities.Player;
 import com.ionprogramming.ld28.entities.PressurePlate;
 import com.ionprogramming.ld28.gfx.Images;
@@ -14,7 +14,7 @@ public class Levels {
 	public static void init(int level){
 		if(level == 1){
 			Game.entities.add(new PressurePlate(5, 5, 5));
-			Game.entities.add(new Door(5, 7, 5));
+			Game.entities.add(new Pit(5, 7, 5));
 			Game.entities.add(new Player(1, 1));
 			
 			Map.map = Map.format(load(Images.map1));
