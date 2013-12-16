@@ -8,6 +8,7 @@ import com.ionprogramming.ld28.entities.Pit;
 import com.ionprogramming.ld28.entities.Player;
 import com.ionprogramming.ld28.entities.PressurePlate;
 import com.ionprogramming.ld28.gfx.Images;
+import com.ionprogramming.ld28.sfx.Sounds;
 
 public class Levels {
 
@@ -19,6 +20,8 @@ public class Levels {
 			
 			Map.map = Map.format(load(Images.map1));
 			Minimap.map = new int[Map.map.length][Map.map[0].length];
+			
+			Sounds.playMusic(Sounds.s[4]);
 		}
 	}
 	

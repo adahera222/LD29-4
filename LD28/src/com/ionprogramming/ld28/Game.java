@@ -17,7 +17,6 @@ import com.ionprogramming.ld28.gfx.Images;
 import com.ionprogramming.ld28.gfx.TitleScreen;
 import com.ionprogramming.ld28.gfx.Update;
 import com.ionprogramming.ld28.input.Keys;
-import com.ionprogramming.ld28.level.Levels;
 import com.ionprogramming.ld28.sfx.Sounds;
 
 
@@ -64,7 +63,6 @@ public class Game extends Applet implements Runnable, KeyListener{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Levels.init(1);
 		HUD.initSmoke();
 	}
 	

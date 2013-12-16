@@ -10,7 +10,7 @@ import com.ionprogramming.ld28.level.Minimap;
 
 public class Torchlight {
 	
-	static Random random = new Random();
+	public static Random random = new Random();
 	static int flicker = 0;
 	static int dif = 0;
 	static Color c = new Color(0, 0, 0);

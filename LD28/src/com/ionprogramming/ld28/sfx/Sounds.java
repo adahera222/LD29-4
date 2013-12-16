@@ -2,6 +2,8 @@ package com.ionprogramming.ld28.sfx;
 
 import java.util.ArrayList;
 
+import com.ionprogramming.ld28.gfx.Torchlight;
+
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -20,12 +22,10 @@ public class Sounds {
 	public static Media pit;
 	public static Media wind;
 
+	public static Media[] s = new Media[5];
 	
-	public static Media s1;
-	public static Media s2;
-	public static Media s3;
-	public static Media s4;
-	public static Media s5;
+	static int playing = 4;
+
 
 	public static void load(){
 		try{
@@ -36,13 +36,13 @@ public class Sounds {
 			glass = new Media(Sounds.class.getClassLoader().getResource("res/sfx/glass.mp3").toString());
 			pit = new Media(Sounds.class.getClassLoader().getResource("res/sfx/pit.mp3").toString());
 			wind = new Media(Sounds.class.getClassLoader().getResource("res/sfx/wind.mp3").toString());
-			
-			s1 = new Media(Sounds.class.getClassLoader().getResource("res/music/1.mp3").toString());
-			s2 = new Media(Sounds.class.getClassLoader().getResource("res/music/2.mp3").toString());
-			s3 = new Media(Sounds.class.getClassLoader().getResource("res/music/3.mp3").toString());
-			s4 = new Media(Sounds.class.getClassLoader().getResource("res/music/4.mp3").toString());
-			s5 = new Media(Sounds.class.getClassLoader().getResource("res/music/5.mp3").toString());
 
+
+			s[0] = new Media(Sounds.class.getClassLoader().getResource("res/music/1.mp3").toString());
+			s[1] = new Media(Sounds.class.getClassLoader().getResource("res/music/2.mp3").toString());
+			s[2] = new Media(Sounds.class.getClassLoader().getResource("res/music/3.mp3").toString());
+			s[3] = new Media(Sounds.class.getClassLoader().getResource("res/music/4.mp3").toString());
+			s[4] = new Media(Sounds.class.getClassLoader().getResource("res/music/5.mp3").toString());
 
 		}
 		catch(Exception e){
@@ -57,6 +57,24 @@ public class Sounds {
 		    @Override
 		    public void run() {
 		       players.remove(med);
+		    }
+		});
+		players.add(med);
+	}
+	
+	public static void playMusic(Media m){
+		final MediaPlayer med = new MediaPlayer(m);
+		med.play();
+		med.setOnEndOfMedia(new Runnable() {
+		    @Override
+		    public void run() {
+				int s = playing;
+				while(s == playing){
+					s = Torchlight.random.nextInt(5);
+				}
+				Sounds.playMusic(Sounds.s[s]);
+				playing = s;
+				players.remove(med);
 		    }
 		});
 		players.add(med);

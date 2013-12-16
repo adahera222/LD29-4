@@ -3,6 +3,7 @@ package com.ionprogramming.ld28.input;
 import java.awt.event.KeyEvent;
 
 import com.ionprogramming.ld28.Game;
+import com.ionprogramming.ld28.level.Levels;
 import com.ionprogramming.ld28.level.Minimap;
 
 public class Keys {
@@ -13,6 +14,7 @@ public class Keys {
 		if(Game.titleScreen){
 			if(e.getKeyCode() == KeyEvent.VK_ENTER){
 				Game.titleScreen = false;
+				Levels.init(1);
 			}
 		}
 		else{
