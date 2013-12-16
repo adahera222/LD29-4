@@ -12,6 +12,7 @@ public class Images {
 	public static BufferedImage tileImage;
 	public static BufferedImage[] tiles;
 	public static BufferedImage titleScreen;
+	public static BufferedImage bg;
 	public static BufferedImage playButton;
 	public static BufferedImage fontTiles;
 	public static BufferedImage[] font;
@@ -30,6 +31,7 @@ public class Images {
 		tiles = ImageHandler.all(tileImage, 8, 2, 1);
 		
 		titleScreen = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/titleScreen.png"));
+		bg = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/bg.png"));
 		playButton = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/play.png"));
 		
 		fontTiles = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/font1.png"));
