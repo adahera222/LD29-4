@@ -19,6 +19,7 @@ public class Player extends Entity{
 		movable = true;
 		this.id = 1;
 		die = false;
+		currentImage = 8;
 	}
 	
 	@Override
@@ -57,7 +58,7 @@ public class Player extends Entity{
 				}
 				else if(yos > 0){
 					yos += speed;
-					if(xos > 32){
+					if(yos > 32){
 						currentImage = 8;
 					}
 					else{

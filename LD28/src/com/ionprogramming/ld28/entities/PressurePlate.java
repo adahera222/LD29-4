@@ -18,16 +18,16 @@ public class PressurePlate extends Entity {
 	boolean out = true;
 	@Override
 	public void ai(){
-//		if(Player.xp == xpos && Player.yp == ypos && !in){
-//			Sounds.play(Sounds.pp);
-//			in = true;
-//			out = false;
-//		}
-//		else if(Player.xp != xpos || Player.yp != ypos && !out){
-//			Sounds.play(Sounds.pp);
-//			out = true;
-//			in = false;
-//		}
+		if(Player.xp == xpos && Player.yp == ypos && !in){
+			Sounds.play(Sounds.pp);
+			in = true;
+			out = false;
+		}
+		else if((Player.xp != xpos || Player.yp != ypos) && !out){
+			Sounds.play(Sounds.pp);
+			out = true;
+			in = false;
+		}
 		
 		if(Player.xp == xpos && Player.yp == ypos){
 			currentImage = 1;

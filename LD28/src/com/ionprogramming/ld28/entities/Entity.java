@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 
 import com.ionprogramming.ld28.Game;
 import com.ionprogramming.ld28.level.Map;
+import com.ionprogramming.ld28.sfx.Sounds;
 
 public class Entity {
 
@@ -35,6 +36,7 @@ public class Entity {
 				if(ypos > 0){
 					if(Map.map[ypos - 1][xpos] == 0){
 						yos -= speed;
+						Sounds.play(Sounds.footsteps);
 					}
 				}
 			}
@@ -42,6 +44,7 @@ public class Entity {
 				if(xpos < Map.map[0].length - 1){
 					if(Map.map[ypos][xpos + 1] == 0){
 						xos += speed;
+						Sounds.play(Sounds.footsteps);
 					}
 				}
 			}
@@ -49,6 +52,7 @@ public class Entity {
 				if(ypos < Map.map.length - 1){
 					if(Map.map[ypos + 1][xpos] == 0){
 						yos += speed;
+						Sounds.play(Sounds.footsteps);
 					}
 				}
 			}
@@ -56,6 +60,7 @@ public class Entity {
 				if(xpos > 0){
 					if(Map.map[ypos][xpos - 1] == 0){
 						xos -= speed;
+						Sounds.play(Sounds.footsteps);
 					}
 				}
 			}

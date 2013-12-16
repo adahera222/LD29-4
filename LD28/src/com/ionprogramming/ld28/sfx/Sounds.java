@@ -27,7 +27,7 @@ public class Sounds {
 	public static void load(){
 		try{
 			fire = new Media(Sounds.class.getClassLoader().getResource("res/sfx/fire.mp3").toString());
-			footsteps = new Media(Sounds.class.getClassLoader().getResource("res/sfx/footsteps.mp3").toString());
+			footsteps = new Media(Sounds.class.getClassLoader().getResource("res/sfx/footsteps_01.mp3").toString());
 			ghost1 = new Media(Sounds.class.getClassLoader().getResource("res/sfx/ghost1.mp3").toString());
 			ghost2 = new Media(Sounds.class.getClassLoader().getResource("res/sfx/ghost2.mp3").toString());
 			glass = new Media(Sounds.class.getClassLoader().getResource("res/sfx/glass.mp3").toString());
