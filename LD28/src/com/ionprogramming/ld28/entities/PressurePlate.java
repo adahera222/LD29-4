@@ -15,12 +15,18 @@ public class PressurePlate extends Entity {
 	
 	@Override
 	public void ai(){
-		
+		if(Player.xp == xpos && Player.yp == ypos){
+			currentImage = 3;
+		}
+		else{
+			currentImage = 2;
+		}
 	}
 	
 	@Override
 	public void trigger(int id){
 		if(id == 1){
+			
 			for(int e = 0; e < Game.entities.size(); e++){
 				if(Game.entities.get(e).id == this.id && Game.entities.get(e).getClass() != PressurePlate.class){
 					Game.entities.get(e).trigger(this.id);
