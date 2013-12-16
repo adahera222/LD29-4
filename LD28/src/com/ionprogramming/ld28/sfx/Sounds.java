@@ -11,10 +11,20 @@ public class Sounds {
 	static ArrayList<MediaPlayer> players = new ArrayList<MediaPlayer>();
 
 	public static Media pit;
+	public static Media s1;
+	public static Media s2;
+	public static Media s3;
+	public static Media s4;
+	public static Media s5;
 
 	public static void load(){
 		try{
 			pit = new Media(Sounds.class.getClassLoader().getResource("res/sfx/pit.mp3").toString());
+			s1 = new Media(Sounds.class.getClassLoader().getResource("res/music/1.mp3").toString());
+			s2 = new Media(Sounds.class.getClassLoader().getResource("res/music/2.mp3").toString());
+			s3 = new Media(Sounds.class.getClassLoader().getResource("res/music/3.mp3").toString());
+			s4 = new Media(Sounds.class.getClassLoader().getResource("res/music/4.mp3").toString());
+			s5 = new Media(Sounds.class.getClassLoader().getResource("res/music/5.mp3").toString());
 		}
 		catch(Exception e){
 			e.printStackTrace();
