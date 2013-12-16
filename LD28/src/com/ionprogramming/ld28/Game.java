@@ -9,6 +9,8 @@ import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.embed.swing.JFXPanel;
+
 import com.ionprogramming.ld28.entities.Entity;
 import com.ionprogramming.ld28.gfx.HUD;
 import com.ionprogramming.ld28.gfx.Images;
@@ -16,6 +18,7 @@ import com.ionprogramming.ld28.gfx.TitleScreen;
 import com.ionprogramming.ld28.gfx.Update;
 import com.ionprogramming.ld28.input.Keys;
 import com.ionprogramming.ld28.level.Levels;
+import com.ionprogramming.ld28.sfx.Sounds;
 
 
 public class Game extends Applet implements Runnable, KeyListener{
@@ -48,6 +51,8 @@ public class Game extends Applet implements Runnable, KeyListener{
 	
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
 	
+	JFXPanel FX = new JFXPanel();
+	
 	public void init(){
 		addKeyListener(this);
 		setSize(width, height);
@@ -55,6 +60,7 @@ public class Game extends Applet implements Runnable, KeyListener{
 		setBackground(Color.black);
 		try {
 			Images.load();
+			Sounds.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

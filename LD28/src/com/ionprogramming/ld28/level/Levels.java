@@ -13,8 +13,8 @@ public class Levels {
 
 	public static void init(int level){
 		if(level == 1){
-			Game.entities.add(new PressurePlate(5, 5, 5));
-			Game.entities.add(new Pit(5, 7, 5));
+			Game.entities.add(new PressurePlate(4, 1, 5));
+			Game.entities.add(new Pit(4, 3, 5));
 			Game.entities.add(new Player(1, 1));
 			
 			Map.map = Map.format(load(Images.map1));
