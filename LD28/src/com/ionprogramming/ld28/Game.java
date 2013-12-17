@@ -24,8 +24,8 @@ import com.ionprogramming.ld28.sfx.Sounds;
 
 public class Game extends Applet implements Runnable, KeyListener{
 	
-	public static int timeLimit = 3600;
-	public static int torchTimeLeft = 3600;
+	public static int timeLimit = 1200;
+	public static int torchTimeLeft = 1200;
 	
 	public static int povx = 0;
 	public static int povy = 0;

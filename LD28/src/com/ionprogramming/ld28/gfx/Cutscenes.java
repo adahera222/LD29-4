@@ -69,7 +69,6 @@ public class Cutscenes {
 			else if(scene == 3){//Win...
 				
 				if(!triggered){//start
-					Sounds.play(Sounds.won);
 					a = 0;
 					triggered = true;
 				}

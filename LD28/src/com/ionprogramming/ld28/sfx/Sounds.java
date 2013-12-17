@@ -19,7 +19,6 @@ public class Sounds {
 	public static Media glass;
 	public static Media pit;
 	public static Media wind;
-	public static Media won;
 	public static Media pp;
 	public static Media die;
 	public static Media s1;
@@ -35,7 +34,6 @@ public class Sounds {
 			pit = new Media(Sounds.class.getClassLoader().getResource("res/sfx/pit.mp3").toString());
 			wind = new Media(Sounds.class.getClassLoader().getResource("res/sfx/wind.mp3").toString());
 
-			won = new Media(Sounds.class.getClassLoader().getResource("res/sfx/confusing.mp3").toString());
 			pp = new Media(Sounds.class.getClassLoader().getResource("res/sfx/pp.mp3").toString());
 			die = new Media(Sounds.class.getClassLoader().getResource("res/sfx/die.mp3").toString());
 			
