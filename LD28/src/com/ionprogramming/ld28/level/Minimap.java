@@ -23,7 +23,7 @@ public class Minimap {
 	public static void update(Graphics g){
 		for(int y = -5; y < 6; y++){
 			for(int x = -5; x < 6; x++){
-				if(y + Player.yp >= 0 && x + Player.xp >= 0){
+				if(y + Player.yp >= 0 && x + Player.xp >= 0 && y + Player.yp < Map.map.length && x + Player.xp < Map.map[0].length){
 					if(Map.map[y + Player.yp][x + Player.xp] != 0){
 						map[y + Player.yp][x + Player.xp] = 1;
 					}

@@ -50,16 +50,16 @@ public class Levels {
 			Game.entities.add(new Pit(47, 14, 14));
 
 			Game.entities.add(new PressurePlate(69, 40, 15));
-			Game.entities.add(new Pit(69, 44, 15));
+			Game.entities.add(new Pit(69, 41, 15));
 
 			Game.entities.add(new PressurePlate(71,40, 16));
-			Game.entities.add(new Pit(71, 44, 16));
+			Game.entities.add(new Pit(71, 41, 16));
 
 			Game.entities.add(new PressurePlate(73, 40, 17));
-			Game.entities.add(new Pit(73, 44, 17));
+			Game.entities.add(new Pit(73, 41, 17));
 
 			Game.entities.add(new PressurePlate(75, 40, 18));
-			Game.entities.add(new Pit(75, 40, 18));
+			Game.entities.add(new Pit(77, 41, 18));
 			
 			Game.entities.add(new PressurePlate(77, 40, 19));
 			Game.entities.add(new Pit(77, 8, 19));
@@ -93,7 +93,7 @@ public class Levels {
 			
 			Game.entities.add(new WinBlock(52, 56));
 			
-			Game.entities.add(new Player(1, 1));
+			Game.entities.add(new Player(77, 39));
 			Map.map = Map.format(load(Images.map1));
 			Minimap.map = new int[Map.map.length][Map.map[0].length];
 			

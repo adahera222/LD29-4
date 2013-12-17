@@ -35,7 +35,6 @@ public class Sounds {
 			pit = new Media(Sounds.class.getClassLoader().getResource("res/sfx/pit.mp3").toString());
 			wind = new Media(Sounds.class.getClassLoader().getResource("res/sfx/wind.mp3").toString());
 
-			
 			won = new Media(Sounds.class.getClassLoader().getResource("res/sfx/confusing.mp3").toString());
 			pp = new Media(Sounds.class.getClassLoader().getResource("res/sfx/pp.mp3").toString());
 			die = new Media(Sounds.class.getClassLoader().getResource("res/sfx/die.mp3").toString());
@@ -48,16 +47,18 @@ public class Sounds {
 		}
 	}
 	
-	public static void play(final Media m){
+	public static void play(Media m){
 		final MediaPlayer med = new MediaPlayer(m);
 		med.play();
 		med.setOnEndOfMedia(new Runnable() {
 		    @Override
 		    public void run() {
-		    	players.get(getPlayerIndex(m)).dispose();
+//		    	players.get(getPlayerIndex(m)).dispose();
 		    	players.remove(med);
+		    	med.dispose();
 		    }
 		});
+		
 		players.add(med);
 	}
 	
